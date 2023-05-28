@@ -1,0 +1,58 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "FF2 HUB", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+--playerTab
+local PlayerTab = Window:MakeTab({
+	Name = "Player",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = PlayerTab:AddSection({
+	Name = "Movement"
+})
+
+PlayerTab:AddSlider({
+	Name = "JumpPower",
+	Min = 50,
+	Max = 150,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "JumpPower",
+	Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end    
+})
+
+PlayerTab:AddSlider({
+	Name = "Walkspeed",
+	Min = 20,
+	Max = 100,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Walkspeed",
+	Callback = function(Value)
+		 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end    
+})
+
+--othertab
+
+local PlayerTab = Window:MakeTab({
+	Name = "Tab 1",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Mags"
+})
+
+PlayerTab:AddButton({
+	Name = "Button!",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
